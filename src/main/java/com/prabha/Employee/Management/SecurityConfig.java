@@ -32,7 +32,7 @@ public class SecurityConfig {
 		return http
 				.csrf(csrfToken -> csrfToken.disable())
 				.authorizeHttpRequests(request -> request.requestMatchers("/user/**").permitAll()
-						.requestMatchers("employee-manage/findAll","employee-manage/findAll/**").hasAuthority(Role.USER.name())
+						.requestMatchers("employee-manage/findAll","employee-manage/findAll/","employee-manage/create").hasAnyAuthority(Role.USER.name(),Role.ADMIN.name())
 						.requestMatchers("employee-manage/**").hasAuthority(Role.ADMIN.name())
 						.anyRequest().authenticated())
 				.httpBasic(Customizer.withDefaults())

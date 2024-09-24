@@ -18,6 +18,8 @@ import com.prabha.Employee.Management.model.Increment;
 import com.prabha.Employee.Management.model.Promotion;
 import com.prabha.Employee.Management.services.EmployeeService;
 
+import jakarta.validation.Valid;
+
 @RestController
 @RequestMapping("employee-manage")
 public class EmployeeController {
@@ -40,7 +42,7 @@ public class EmployeeController {
 	}
 	
 	@PostMapping("create")
-	public ResponseEntity<Employees> addEmployee(@RequestBody Employees employee){
+	public ResponseEntity<Employees> addEmployee(@Valid @RequestBody Employees employee){
 		Employees emp=employeeService.addEmployee(employee);
 		return new ResponseEntity<> (emp,HttpStatus.CREATED);
 	}

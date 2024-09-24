@@ -6,6 +6,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 @Entity
 public class Employees {
@@ -16,10 +20,15 @@ public class Employees {
 	
 	private String regNo;
 	
+	@NotBlank(message="Name cannot be blank or empty")
 	private String name;
 	
+	@NotBlank(message="Designation cannot be blank or empty")
 	private String designation;
 	
+	@NotNull(message="Salary cannot be blank or empty")
+	@Min(value=20000)
+	@Max(value=100000)
 	private double salary;
 	
 	private Date dateOfJoin;

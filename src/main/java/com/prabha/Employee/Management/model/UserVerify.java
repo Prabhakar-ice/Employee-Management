@@ -2,14 +2,14 @@ package com.prabha.Employee.Management.model;
 
 public class UserVerify {
 
-	private String Username;
+	private String username;
 	private String password;
 	
 	public String getUsername() {
-		return Username;
+		return username;
 	}
 	public void setUsername(String username) {
-		Username = username;
+		this.username = username;
 	}
 	public String getPassword() {
 		return password;
